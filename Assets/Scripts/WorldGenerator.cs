@@ -19,7 +19,9 @@ public class WorldGenerator : MonoBehaviour {
 		typeof(SpiceDFoundGameEvent),
 		typeof(StealVillageGameEvent),
 		typeof(TreasureFoundGameEvent),
-		typeof(OverboardGameEvent)
+		typeof(OverboardGameEvent),
+		typeof(PiratesGameEvent),
+		typeof(SpoiledFoodGameEvent)
 	});
 
 	private ArrayList islands = new ArrayList();

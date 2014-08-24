@@ -16,28 +16,72 @@ public class Globals : MonoBehaviour {
 	public Text spiceBValue;
 	public Text spiceCValue;
 	public Text spiceDValue;
+	public Texture2D cursorTexture;
 
 	public CanvasGroup inventoryCanvas;
 
 	[System.NonSerialized] public bool inputActive = false;
-	[System.NonSerialized] public int crew = 1;
+	[System.NonSerialized] public int crew = 4;
 	[System.NonSerialized] public int gold = 200;
-	[System.NonSerialized] public int food = 40;
+	[System.NonSerialized] public int food = 10;
 	[System.NonSerialized] public bool spiceA = false;
 	[System.NonSerialized] public bool spiceB = false;
 	[System.NonSerialized] public bool spiceC = false;
 	[System.NonSerialized] public bool spiceD = false;
 	
 	public ArrayList crewNames = new ArrayList(new string[] {
-		"Bob",
 		"Will",
 		"Sarah",
-		"Ted",
-		"Jim",
 		"Charlie",
 		"Emma",
 		"Max",
-		"Lionel"
+		"Gus",
+		"Eugene",
+		"Archibald",
+		"Humphrey",
+		"Gibbs",
+		"Twarby",
+		"Dunham",
+		"Mowfurth",
+		"Stubb",
+		"Simeon",
+		"Guybrush",
+		"Gilmere",
+		"Otis",
+		"Tobias",
+		"Hugh",
+		"Maxwell",
+		"Ludsthorp",
+		"Codsworth",
+		"Culpeper",
+		"Burt",
+		"Lloyd",
+		"Yate",
+		"Pygott",
+		"Hammer",
+		"Shotbolt",
+		"Al",
+		"Scruggs",
+		"Jerome",
+		"John",
+		"Bill",
+		"Heth",
+		"Smithee",
+		"Barbery",
+		"Goose",
+		"Hardmeat",
+		"Cornfoot",
+		"Lech",
+		"Palfrey",
+		"Bonefat",
+		"Rattlebag",
+		"Loretta",
+		"Gertrude",
+		"Edith",
+		"Marion",
+		"Gillian",
+		"Ursula",
+		"Ruth"
 	});
 	public ArrayList crewMembers = new ArrayList();
 
@@ -83,7 +127,7 @@ public class Globals : MonoBehaviour {
 
 		for(int ii = 0; ii < crew; ii++){
 			AddRandomCrew ();
-		}
+		} 
 	}
 	
 	void OnDestroy()
@@ -92,7 +136,7 @@ public class Globals : MonoBehaviour {
 	}
 
 	void Start(){
-
+		Cursor.SetCursor (cursorTexture, new Vector2 (32f, 32f), CursorMode.Auto);
 	}
 	
 	void Update(){

@@ -12,7 +12,7 @@ public class SailorHireGameEvent : GameEvent {
 	
 	public override string text {
 		get {
-			string ret = "A young ruffian named " + crew + " offers to join your crew in exchange for fair pay of " + amount + " gold. He is slightly odiferous but looks beefy enough to rig a sail.";
+			string ret = "A young ruffian named " + crew + " offers to join your crew in exchange for fair pay of " + amount + " gold. They look slightly odiferous but looks beefy enough to rig a sail.";
 			if(Globals.Instance.gold < amount){
 				ret += "\n\nUnfortunately ye are ill equipped to pay them.";
 			}else{

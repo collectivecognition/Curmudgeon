@@ -4,7 +4,7 @@ using System.Collections;
 public class CrewDeadGameEvent : GameEvent {
 	public override string text {
 		get {
-			return "Your crew members are all dead. You are a terrible captain.";
+			return "Ye find oneself alone at sea, having lost the last of thy crew. Too ashamed to return to his Majesty the King empty handed, ye abandon ship and live out thy days on the nearest atoll as a crusty hermit.";
 		}
 	}
 	
@@ -16,7 +16,7 @@ public class CrewDeadGameEvent : GameEvent {
 	
 	public override string buttonBText {
 		get {
-			return "New Game";
+			return "Game Over Man. Game Over!";
 		}
 	}
 	

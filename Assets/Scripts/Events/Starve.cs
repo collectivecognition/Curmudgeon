@@ -10,17 +10,17 @@ public class StarveGameEvent : GameEvent {
 
 	public override string text {
 		get {
-			return crewName + " starved to death.";
-		}
-	}
-	
-	public override string buttonAText {
-		get {
-			return "OK";
+			return "\"Prithee sir, mayhap I hath some more?\"\n\n" + crewName + " succumbs to malnourishment.";
 		}
 	}
 	
 	public override string buttonBText {
+		get {
+			return "More Food For Me";
+		}
+	}
+	
+	public override string buttonAText {
 		get {
 			return "";
 		}

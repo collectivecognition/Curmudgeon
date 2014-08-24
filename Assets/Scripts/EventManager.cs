@@ -6,11 +6,14 @@ public class EventManager : MonoBehaviour {
 	public GameObject panel;
 	public GameObject buttonA;
 	public GameObject buttonB;
+	public GameObject buttonAText;
+	public GameObject buttonBText;
 	public GameObject text;
 	public GameEvent gameEvent;
+	public GameObject logo;
 
 	private float fadeSpeed = 2.0f;
-	private bool visible = false;
+	private bool visible = true;
 
 	private float foodEatRate = 60.0f; // 1 food per 1 crew per X seconds
 	private float timeSinceLastEat = 0.0f;
@@ -19,13 +22,14 @@ public class EventManager : MonoBehaviour {
 	private float timeSinceLastStarve = 0.0f;
 	
 	void Start () {
-		StartCoroutine(ShowIntro ());
+		// StartCoroutine(ShowIntro ());
+		SetGameEvent (new LogoGameEvent ());
 	}
 
 	IEnumerator ShowIntro () {
 		yield return new WaitForSeconds(2);
-		// SetGameEvent (new IntroductionGameEvent ());
-		SetGameEvent (new OverboardGameEvent ());
+		SetGameEvent (new IntroductionGameEvent ());
+		// SetGameEvent (new SpoiledFoodGameEvent ());
 	}
 
 	void Hide () {
@@ -41,13 +45,35 @@ public class EventManager : MonoBehaviour {
 	}
 
 	public void ButtonAClicked () {
-		Hide ();
-		gameEvent.OnButtonAClicked ();
+		if(buttonAText.GetComponent<Text> ().text.Length > 0){
+			Hide ();
+			gameEvent.OnButtonAClicked ();
+		}
 	}
 
 	public void ButtonBClicked () {
-		Hide ();
-		gameEvent.OnButtonBClicked ();
+		if(buttonBText.GetComponent<Text> ().text.Length > 0){
+			Hide ();
+			gameEvent.OnButtonBClicked ();
+		}
+	}
+
+	public void HighlightButtonA (){
+		// buttonA.GetComponent<Text> ().color = Color.white;
+	}
+
+	public void UnHighlightButtonA (){
+		// buttonA.GetComponent<Text> ().color = Color.red;
+	}
+
+	private Color buttonColor = new Color (131f, 117f, 83f);
+	
+	public void HighlightButtonB (){
+		// buttonB.GetComponent<Text> ().color = Color.white;
+	}
+	
+	public void UnHighlightButtonB (){
+		// buttonB.GetComponent<Text> ().color = Color.red;
 	}
 
 	public void RandomGameEvent () {
@@ -63,8 +89,18 @@ public class EventManager : MonoBehaviour {
 	public void SetGameEvent (GameEvent newGameEvent){
 		gameEvent = newGameEvent;
 		text.GetComponent<Text> ().text = gameEvent.text;
-		buttonA.GetComponent<Text>().text = gameEvent.buttonAText;
-		buttonB.GetComponent<Text>().text = gameEvent.buttonBText;
+		buttonAText.GetComponent<Text>().text = gameEvent.buttonAText;
+		if(gameEvent.buttonAText.Length == 0){
+			buttonA.GetComponent<Image>().enabled = false;
+		}else{
+			buttonA.GetComponent<Image>().enabled = true;
+		}
+		buttonBText.GetComponent<Text>().text = gameEvent.buttonBText;
+		if(gameEvent.buttonBText.Length == 0){
+			buttonB.GetComponent<Image>().enabled = false;
+		}else{
+			buttonB.GetComponent<Image>().enabled = true;
+		}
 		Show ();
 	}
 

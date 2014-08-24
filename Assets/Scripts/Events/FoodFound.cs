@@ -11,7 +11,7 @@ public class FoodFoundGameEvent : GameEvent {
 	
 	public FoodFoundGameEvent(){
 		food = (string)foods [Random.Range (0, foods.Count)];
-		amount = Random.Range (10, 30);
+		amount = Random.Range (1, 6);
 	}
 	
 	public override string text {
