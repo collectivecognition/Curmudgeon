@@ -6,12 +6,15 @@ public class WorldGenerator : MonoBehaviour {
 	public GameObject islandPrefab;
 
 	private float minIslandDistance = 40.0f;
-	private float maxIslandDistance = 100.0f;
+	private float maxIslandDistance = 80.0f;
 
 	private ArrayList gameEvents = new ArrayList (new Type[] {
 		typeof(FoodForSaleGameEvent),
 		typeof(FoodFoundGameEvent),
 		typeof(SailorHireGameEvent),
+		typeof(OverboardGameEvent),
+		typeof(PiratesGameEvent),
+		typeof(SpoiledFoodGameEvent),
 		typeof(ShipwreckGameEvent),
 		typeof(SpiceAFoundGameEvent),
 		typeof(SpiceBFoundGameEvent),
