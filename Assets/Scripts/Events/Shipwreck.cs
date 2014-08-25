@@ -10,9 +10,9 @@ public class ShipwreckGameEvent : GameEvent {
 
 	public override string text {
 		get {
-			return "A disheveled man emerges hysterically from the bushes...\n\n" +
+			return "A disheveled hermit emerges hysterically from the bushes...\n\n" +
 				"\"Shipwrecked, I was! " + crew + " be my name!\"\n\n" +
-				"Despite a hint of madness in his eyes, ye invite him to join your crew.";
+				"Despite a hint of madness in their eyes, ye invite them to join your crew.";
 		}
 	}
 	

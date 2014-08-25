@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FoodFoundGameEvent : GameEvent {
 	private ArrayList foods = new ArrayList(new string[] {
-		"Coconuts", "Rodents", "Crayfish", "Mangoes"
+		"Coconuts", "Rats", "Crayfish", "Mangoes"
 	});
 
 	private string food;
@@ -16,7 +16,7 @@ public class FoodFoundGameEvent : GameEvent {
 	
 	public override string text {
 		get {
-			return "The landing party returns with a bounty of " + food;
+			return "The landing party returns from foraging in dense jungle on the island with a bounty of " + food + ".";
 		}
 	}
 	

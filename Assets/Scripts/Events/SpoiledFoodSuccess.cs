@@ -10,7 +10,7 @@ public class SpoiledFoodSuccessGameEvent : GameEvent {
 	
 	public override string text {
 		get {
-			return "You brave the tainted " + food + " and survive, despite a minor case of the hot sloppies";
+			return "You brave the tainted " + food + " and survive, despite a minor case of the hot sloppies.";
 		}
 	}
 	

@@ -4,7 +4,7 @@ using System.Collections;
 public class WinGameEvent : GameEvent {
 	public override string text {
 		get {
-			return "You found all the King's spices!\n\nAh, what bounty you bring, 'tis most splendid! The kingdom's meals shall be bland no more!\n\n toast to you fine Captain and our enemy's enemies!";
+			return "You found all the King's spices!\n\nAh, what bounty you bring, 'tis most splendid! The kingdom's meals shall be bland no more!\n\n A toast to you fine Captain and our enemy's enemies!";
 		}
 	}
 	
