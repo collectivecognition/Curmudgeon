@@ -15,10 +15,10 @@ public class EventManager : MonoBehaviour {
 	private float fadeSpeed = 2.0f;
 	private bool visible = true;
 
-	private float foodEatRate = 60.0f; // 1 food per 1 crew per X seconds
+	private float foodEatRate = 50.0f; // 1 food per 1 crew per X seconds
 	private float timeSinceLastEat = 0.0f;
 
-	private float starveRate = 60.0f; // Time between starvations in seconds
+	private float starveRate = 50.0f; // Time between starvations in seconds
 	private float timeSinceLastStarve = 0.0f;
 	
 	void Start () {
