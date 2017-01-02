@@ -11,11 +11,13 @@ public class BoatControls : MonoBehaviour {
 	private float maxTurnSpeed = 0.5f;
 
 	private bool inWater = false;
+    private ParticleSystem[] particles;
 
-	void Start() {
-		rigidbody.centerOfMass = centerOfMass;
-		// rigidbody.maxAngularVelocity = maxTurnSpeed;
-	}
+    void Start() {
+		GetComponent<Rigidbody>().centerOfMass = centerOfMass;
+        // rigidbody.maxAngularVelocity = maxTurnSpeed;
+        particles = transform.GetComponentsInChildren<ParticleSystem>();
+    }
 
 	void OnTriggerEnter(Collider collider) {
 		if(collider.tag == "Water") {
@@ -30,15 +32,32 @@ public class BoatControls : MonoBehaviour {
 	}
 
 	void Update() {
-		if(Globals.Instance.inputActive){
-			if(rigidbody.velocity.magnitude < maxPaddleSpeed){
-				rigidbody.AddForce(-transform.forward * paddleSpeed * -Input.GetAxis("Vertical"));
-			}
+        if(Globals.Instance.inputActive) {
+            if(GetComponent<Rigidbody>().velocity.magnitude < maxPaddleSpeed) {
+                GetComponent<Rigidbody>().AddForce(-transform.forward * paddleSpeed * -Input.GetAxis("Vertical"));
+            }
 
-			if(rigidbody.angularVelocity.y < maxTurnSpeed){
-				rigidbody.AddRelativeTorque(transform.up * paddleTurnSpeed * Input.GetAxis("Horizontal") * Mathf.Sign(Input.GetAxis("Vertical")));
-			}
-		}
+            if(GetComponent<Rigidbody>().angularVelocity.y < maxTurnSpeed) {
+                GetComponent<Rigidbody>().AddRelativeTorque(transform.up * paddleTurnSpeed * Input.GetAxis("Horizontal") * Mathf.Sign(Input.GetAxis("Vertical")));
+            }
+
+            // Lock rotation
+
+            Quaternion r = transform.localRotation;
+            r.x = 0f;
+            r.z = 0f;
+            transform.localRotation = r;
+
+            if(GetComponent<Rigidbody>().velocity.magnitude > 2f) {
+                foreach(ParticleSystem p in particles) {
+                    p.Play();
+                }
+            }else {
+                foreach(ParticleSystem p in particles) {
+                    p.Stop();
+                }
+            }
+        }
 	}
 
 	void FixedUpdate() {

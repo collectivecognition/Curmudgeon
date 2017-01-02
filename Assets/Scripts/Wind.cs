@@ -36,12 +36,12 @@ public class Wind : MonoBehaviour {
 			float damping = Mathf.Max (1.0f - (distance / maxDistance), 0.0f);
 
 			// obj.rigidbody.AddRelativeForce (windDirection * windForce * damping, ForceMode.Force);
-			obj.rigidbody.AddForce (windDirection * windForce * damping, ForceMode.Force);
+			obj.GetComponent<Rigidbody>().AddForce (windDirection * windForce * damping, ForceMode.Force);
 
 			// Debug.DrawRay (obj.transform.position, windDirection * windForce * damping, Color.cyan);
 
 			Quaternion delta = Quaternion.FromToRotation (obj.transform.forward, windDirection);
-			obj.rigidbody.AddTorque(0f, delta.y * windTorque * damping, 0f);
+			obj.GetComponent<Rigidbody>().AddTorque(0f, delta.y * windTorque * damping, 0f);
 		}
 	}
 }

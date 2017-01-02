@@ -59,7 +59,7 @@ public class Water : MonoBehaviour {
 				scrollT = 0.0f;
 			}
 		}
-		renderer.material.SetTextureOffset ("_MainTex", scrollOffset);
+		GetComponent<Renderer>().material.SetTextureOffset ("_MainTex", scrollOffset);
 	}
 
 }
